@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Docker Swarm Example!</title>
+    <script src="./ping.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
@@ -23,10 +24,29 @@
         <h3 class="mb-2 has-text-weight-medium is-family-code">
           Server information:
         </h3>
+        <div class="field is-flex is-align-items-center">
+          <div class="field-label">
+            <label for="api-url" class="label">API URL:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input
+                  class="input"
+                  type="text"
+                  id="api-url"
+                  value="http://localhost:8001"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="block">
           <pre><code id="last-output"></code></pre>
         </div>
-        <button class="button is-dark is-fullwidth mt-4">Refresh</button>
+        <button id="refresh" class="button is-dark is-fullwidth mt-4">
+          Refresh
+        </button>
       </div>
     </section>
     <section class="section py-2">
@@ -35,7 +55,7 @@
           Request logs:
         </h3>
         <div className="block">
-          <pre><code id="last-output"></code></pre>
+          <pre><code id="request-logs"></code></pre>
         </div>
       </div>
     </section>
