@@ -9,8 +9,17 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
     />
+    <style>
+      html,
+      body {
+        height: 100vh;
+        height: 100dvh;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
   </head>
-  <body>
+  <body class="is-flex is-flex-direction-column">
     <section class="section py-2">
       <div class="hero">
         <div class="hero-body">
@@ -49,13 +58,21 @@
         </button>
       </div>
     </section>
-    <section class="section py-2">
-      <div class="box p-4">
+    <section
+      class="section pt-2 pb-5 is-flex is-flex-direction-column"
+      style="height: 100%; overflow: hidden"
+    >
+      <div
+        class="box p-4 is-flex is-flex-direction-column"
+        style="max-height: 100%"
+      >
         <h3 class="mb-2 has-text-weight-medium is-family-code">
           Request logs:
         </h3>
-        <div className="block">
-          <pre><code id="request-logs"></code></pre>
+        <div className="block" style="height: 100%; overflow: hidden">
+          <pre
+            style="height: 100%; overflow-y: auto"
+          ><code id="request-logs"></code></pre>
         </div>
       </div>
     </section>

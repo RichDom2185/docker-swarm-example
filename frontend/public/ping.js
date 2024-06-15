@@ -28,6 +28,16 @@
           const now = new Date().toLocaleString();
           logElement.innerText += `[${now}] ❌ API is down\n`;
           lastOutput.innerText = "";
+        })
+        .finally(() => {
+          const logContainer = logElement.parentElement;
+          // Update scroll position if not currently scrolled up
+          if (
+            logContainer.scrollHeight - logContainer.scrollTop <
+            logContainer.clientHeight + 30
+          ) {
+            logContainer.scrollTop = logContainer.scrollHeight;
+          }
         });
     }
 
