@@ -1,9 +1,16 @@
 import express from "express";
+import morgan from "morgan";
 import { generateRandomUuid } from "./buildInfo" with { type: "macro" };
 
 const app = express();
 const PORT = parseInt(process.env.PORT || "8000");
 const HOST = process.env.HOST || "localhost";
+
+app.use(
+  morgan(
+    '[:date[clf]] ":method :url HTTP/:http-version" :status :response-time ms'
+  )
+);
 
 app.get("/", (_, res) => {
   const uuid = generateRandomUuid();
