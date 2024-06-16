@@ -17,6 +17,14 @@
         max-width: 1200px;
         margin: 0 auto;
       }
+      #last-output {
+        transition: all 300ms ease-in-out;
+      }
+      #last-output.changed {
+        color: var(--bulma-scheme-main);
+        background-color: var(--bulma-text-strong);
+        transition: none;
+      }
     </style>
   </head>
   <body class="is-flex is-flex-direction-column">

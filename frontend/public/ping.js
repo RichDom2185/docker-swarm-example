@@ -22,7 +22,12 @@
           const formatted = JSON.stringify(json, null, 2);
           const now = new Date().toLocaleString();
           logElement.innerText += `[${now}] ✅ Got healthcheck response: ${data}\n`;
+          const isDifferent = lastOutput.innerText !== formatted;
           lastOutput.innerText = formatted;
+          if (isDifferent) {
+            lastOutput.classList.add("changed");
+            setTimeout(() => lastOutput.classList.remove("changed"), 50);
+          }
         })
         .catch(() => {
           const now = new Date().toLocaleString();
